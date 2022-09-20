@@ -1,8 +1,9 @@
 package com.cg.entities;
 
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -18,11 +19,12 @@ public class User
 	private String type;
 	private String user_password;
 	
-	@OneToOne(cascade=CascadeType.ALL) //connecting user with admin
+	@OneToOne(fetch = FetchType.LAZY) //connecting user with admin
 	@JoinColumn(name="Admin_id")
-	private  Admin admin;
+	private Admin admin;
 	
-	@OneToOne(mappedBy="college")//connecting user in college
+	@OneToOne(fetch = FetchType.LAZY)//connecting user in college
+	@JoinColumn(name="College_id")
 	private College college;
 
 	public College getCollege() {

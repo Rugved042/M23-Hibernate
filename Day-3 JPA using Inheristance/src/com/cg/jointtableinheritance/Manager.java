@@ -6,7 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Manager2")
+@Table(name = "Manager2") /*it is for giving table name in
+in this case entity class is manager but table name in SQL is Manager2*/
 //@DiscriminatorValue("MNG")
 public class Manager extends Employee
 {

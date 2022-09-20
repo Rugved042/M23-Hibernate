@@ -1,11 +1,13 @@
 package com.cg.entities;
 
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+//import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -27,21 +29,62 @@ public class College
 	@Column(name="LOCATION")
 	private String location;	
 	
-	@OneToOne(cascade=CascadeType.ALL)//making connection with user
+	@OneToOne(fetch = FetchType.LAZY)//making connection with user
 	@JoinColumn(name="User_id")
 	private  User user;
 	
-
+	/*@OneToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY)//making connection with user
+	@JoinColumn(name="placement_id")
+	private Placement placement;
 	
+	@OneToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY)//making connection with user
+	@JoinColumn(name="certificate_id")
+	private  Certificate certificate;
+	
+	@OneToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY)//making connection with user
+	@JoinColumn(name="student_id")
+	private Student student;*/
+
+	//getters and setters method
 	public User getUser() {
 		return user;
 	}
+
+	
+	/*public Placement getPlacement() {
+		return placement;
+	}
+
+
+	public void setPlacement(Placement placement) {
+		this.placement = placement;
+	}
+
+
+	public Certificate getCertificate() {
+		return certificate;
+	}
+
+
+	public void setCertificate(Certificate certificate) {
+		this.certificate = certificate;
+	}
+
+
+	public Student getStudent() {
+		return student;
+	}
+
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}*/
+
 
 	public void setUser(User user) {
 		this.user = user;
 	}
 
-	//getters and setters method
 	public Long getCollege_id() {
 		return college_id;
 	}
@@ -75,13 +118,17 @@ public class College
 		this.location = location;
 	}
 
+
 	@Override
 	public String toString() {
 		return "College [college_id=" + college_id + ", college_name=" + college_name + ", college_admin="
 				+ college_admin + ", location=" + location + ", user=" + user + "]";
 	}
-	
-	
 
 
+	/*@Override
+	public String toString() {
+		return "College [college_id=" + college_id + ", college_name=" + college_name + ", college_admin="
+				+ college_admin + ", location=" + location + ", user=" + user + ",placement=" + placement
+				+ ", certificate=" + certificate + ", student=" + student + "]";*/
 }

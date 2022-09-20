@@ -15,7 +15,7 @@ public class Placement {
     private String qualification;
     private int place_year;
     
-    @ManyToOne(cascade=CascadeType.ALL)//making connection with college
+    @ManyToOne(fetch = FetchType.LAZY)//making connection with college
 	@JoinColumn(name="college_id")
 	private College college;
     

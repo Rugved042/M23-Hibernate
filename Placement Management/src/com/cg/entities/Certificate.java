@@ -1,8 +1,9 @@
 package com.cg.entities;
 
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,10 +21,11 @@ public class Certificate {
 	//@Column(name="Year")
 	private int cert_year;
 	
-	@OneToOne(mappedBy="certificate")//making connection with student
+	@OneToOne(fetch = FetchType.LAZY)//making connection with student
+	@JoinColumn(name="Student_id")
 	private Student student;
 	
-	@ManyToOne(cascade=CascadeType.ALL)//making connection with college
+	@ManyToOne(fetch = FetchType.LAZY)//making connection with college
 	@JoinColumn(name="college_id")
 	private College college;
 	

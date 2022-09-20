@@ -15,6 +15,11 @@ value="jdbc:mysql://localhost:3306/M23" />
  <property name="javax.persistence.jdbc.user" value="root" />
  <property name="javax.persistence.jdbc.password"
 value="naik1211" />
+
+<!-- for auto create/update tables // we can use create 
+ keyword for deleting old and creating new table everytime  -->
+ <!-- property name = "javax.persistence.hbm2ddl.auto" value="update"/-->
+ <property name="hibernate.hbm2ddl.auto" value="create"/>
  
 </properties>
 </persistence-unit>
